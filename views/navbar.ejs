@@ -1,0 +1,32 @@
+<nav class="navbar bg-dark">
+    <div class="container-fluid mx-5">
+        <a href="/" class="navbar-brand text-light">
+            <img class="px-3" src="/img/logo.png" alt="logo">
+            Rick and Morty App
+        </a>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              My favorites
+              <% if (session.favorites) {%>
+              <span class="badge text-bg-danger"><%= session.favorites.length %></span></button>
+              <%} else {%>
+              <span class="badge text-bg-danger">0</span></button>
+              <% } %>
+            <ul class="dropdown-menu">
+                <% if (session.favorites) {%>
+                    <% session.favorites.forEach(function(fave) { %>
+                            <li><a class="dropdown-item" href="<%= fave.url%>"><%= fave.Name %></a></li>
+                        </form>
+                    <% });%>
+                <%} else {%>
+                    <li><a class="dropdown-item" href="#">Aún no hay nada aquí</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script>
+    function remove(element) {
+        element.style.color = color;
+    }
+</script>

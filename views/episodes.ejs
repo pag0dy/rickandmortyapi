@@ -10,22 +10,20 @@
   <body>
     <%- include('navbar')%>
     <div class="container">
-        <h2>Characters</h2>
+        <h2>Episode</h2>
         <div class="row row-cols-2 row-cols-md-4 g-4">
-            <% characters.forEach(function(character) { %>
+            <% episodes.forEach(function(episode) { %>
                 <div class="col">
                     <div class="card" style="width: 18rem;">
-                        <img src="<%=character.image%>" class="card-img-top" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title"><%=character.name%></h5>
-                            <p class="card-text"><span class="text-primary">Gender:</span> <%=character.gender%></p>
-                            <p class="card-text"><span class="text-primary">Species:</span> <%=character.species%></p>
-                            <p class="card-text"><span class="text-primary">Status:</span> <%=character.status%></p>
-                            <a href="/characters/<%=character.id%>/" class="btn btn-primary">Learn More</a>
+                            <h5 class="card-title"><%=episode.name%></h5>
+                            <p class="card-text"><span class="text-primary">Air date:</span> <%=episode.air_date%></p>
+                            <p class="card-text"><span class="text-primary">Episode:</span> <%=episode.episode%></p>
+                            <a href="/episodes/<%=episode.id%>/" class="btn btn-primary">Learn More</a>
                             <form action="/addToFaves" method="post">
-                                <input type="hidden" name="faveType" value="character">
-                                <input type="hidden" name="url" value="/characters/<%=character.id%>">
-                                <input type="hidden" name="Name" value="<%=character.name%>">
+                                <input type="hidden" name="faveType" value="episode">
+                                <input type="hidden" name="url" value="/episodes/<%=episode.id%>">
+                                <input type="hidden" name="Name" value="<%=episode.name%>">
                                 <button class="btn btn-warning my-2" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                                 </svg></buton>
                             </form>
